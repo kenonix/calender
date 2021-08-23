@@ -1,5 +1,5 @@
 #include "../headers/main.h"
-
+#include "../headers/cal_math.h"
 void check_yoil(int a){
     switch (a)
     {
@@ -43,4 +43,7 @@ int main (){
     check_yoil(g);
     printf("julian: ");
     check_yoil(j);
+    // 확인됨
+    // log(2021-08-23)
+    // 기본 달력 체계는 그레고리안 달력으로 하되 변경이 가능하게 한다.
 }
