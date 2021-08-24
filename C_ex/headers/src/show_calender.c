@@ -11,14 +11,14 @@ int show_calender(const int year, const int month, const int day){
   FILE * check_calender_types;
   if ((check_calender_types = fopen("calender_setting.bin","rb")) == NULL){
     printf("파일 열기 에러\n");
-    printf("ERROR code: %d",File_open_error);
-    return File_open_error;
+    printf("ERROR code: %d\n",File_open_error);
+    //return File_open_error;
   }
   
   printf("year: %4d \n" ,year);
-  printf("month: %2d",month);
-  printf("| sun | mon | tue | wed | thu | fri | sat |");
-  printf("-------------------------------------------");
+  printf("month: %2d \n",month);
+  printf("| sun | mon | tue | wed | thu | fri | sat |\n");
+  printf("-------------------------------------------\n");
   first_day_of_month = default_calender == 0? 
     first_day_of_month_gregrian(year, month, day):
     first_day_of_month_julian(year, month, day);
@@ -44,11 +44,28 @@ int show_calender(const int year, const int month, const int day){
         break;
     }
   }
-
-  for (i = 1;check_month_day; i++){
+  int print_day = 1;
+  if (first_day_of_month == 0){
+    first_day_of_month = 7;
+  }
+  first_day_of_month --;
+  for (i = 1;i<=5; i++){
+    printf("| ");
     for (j = 1; j <= 7; j++){
-        
+      if(first_day_of_month!=0){
+        printf("    | ");
+        first_day_of_month--;
+      }
+      else if((check_month_day - print_day) >= 0){
+        printf("%3d | ",print_day);
+        print_day++;
+      }
+      else printf("    | ");
     }
+    //for (j = 1; j <= 7; j ++){
+    //할 일 추가하면 생기는 줄
+    //}
+    printf("\n");
   }
   
 }
