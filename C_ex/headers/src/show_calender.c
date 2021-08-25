@@ -1,6 +1,7 @@
 #include "..\main.h"
 #include "..\cal_math.h"
-#define File_open_error 0x8001
+#include "..\error.h"
+
 #define default_calender 0 // 0 = gregrian // 1 = julian
 
 int show_calender(const int year, const int month, const int day){
