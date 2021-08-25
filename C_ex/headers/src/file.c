@@ -1,4 +1,5 @@
 #include "../main.h"
+#include "../error.h"
 
 typedef struct __file_fomat{
   int type;
@@ -19,7 +20,12 @@ int file_write(file_fomat *data){
 
 int flie_read(file_fomat *data){
   FILE * data_file;
-  fopen("data.xc","rb");
+  data_file = fopen("data.xc","rb");
+  if(data_file == NULL){
+    printf("파일 열기 에러\n");
+    printf("ERROR code : %d\n",File_open_error);
+    return File_open_error;
+  }
   data = malloc(sizeof(data));
   file_fomat *read_data;
   fread(read_data,sizeof(data),1,data_file);
