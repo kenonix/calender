@@ -30,7 +30,7 @@ int file_read(file_fomat *data){
     return File_open_error;
   }
   printf("type: %d\n importance: %d\n start_day: %d\n end_day: %d\n contant_langth: %d\n contant: %s\n ",data->type,data->importance,data->start_day,data->end_day,data->contant_langth,data->contant);
-  data = malloc(sizeof(*data));
+  data = (char)malloc(sizeof(*data));
   fread(data,sizeof(data),1,data_file);
   return 0;
 }

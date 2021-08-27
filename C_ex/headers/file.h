@@ -1,4 +1,4 @@
-#include "src\file.c"
+#include "src/file.c"
 
 int file_write(file_fomat *data);
 

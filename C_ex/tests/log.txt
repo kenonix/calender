@@ -1,0 +1,17 @@
+In file included from ../headers/file.h:1,
+                 from file-test.c:1:
+../headers/src/file.c: In function 'file_read':
+../headers/src/file.c:33:10: warning: cast from pointer to integer of different size [-Wpointer-to-int-cast]
+   33 |   data = (char)malloc(sizeof(*data));
+      |          ^
+../headers/src/file.c:33:8: warning: assignment to 'file_fomat *' {aka 'struct __file_fomat *'} from 'char' makes pointer from integer without a cast [-Wint-conversion]
+   33 |   data = (char)malloc(sizeof(*data));
+      |        ^
+file-test.c: In function 'w':
+file-test.c:12:3: warning: implicit declaration of function 'sprintf_s'; did you mean 'sprintf'? [-Wimplicit-function-declaration]
+   12 |   sprintf_s((d.contant),((sizeof(char))*(d.contant_langth)),"just_test");
+      |   ^~~~~~~~~
+      |   sprintf
+/usr/bin/ld: /tmp/cc287oJG.o: in function `w':
+file-test.c:(.text+0x152): undefined reference to `sprintf_s'
+collect2: error: ld returned 1 exit status
