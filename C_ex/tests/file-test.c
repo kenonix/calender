@@ -8,8 +8,8 @@ void w(){
   d.start_day = 0;
   d.end_day = 0;
   d.contant_langth = sizeof("just_test");
-  d.contant = (char*)malloc(sizeof(char)*(d.contant_langth));
-  sprintf_s((d.contant),((sizeof(char))*(d.contant_langth)),"just_test");
+  d.contant = malloc(sizeof(file_fomat)+sizeof(char)*(d.contant_langth));
+  sprintf((d.contant),"just_test");
   file_write(&d);
   free(d.contant);
 }

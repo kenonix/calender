@@ -16,7 +16,7 @@ int file_write(file_fomat *data){
   //test code up
   printf("type: %d\n importance: %d\n start_day: %d\n end_day: %d\n contant_langth: %d\n contant: %s\n ",data->type,data->importance,data->start_day,data->end_day,data->contant_langth,data->contant);
   //test code end
-  fwrite(data, sizeof(data), 1, data_file);
+  fwrite(data, sizeof(file_fomat), sizeof(data->contant), data_file);
   fclose(data_file);
   return 0;
 }
@@ -29,8 +29,8 @@ int file_read(file_fomat *data){
     printf("ERROR code : %d\n",File_open_error);
     return File_open_error;
   }
+  printf("read_fast--------------------------------\n");
   printf("type: %d\n importance: %d\n start_day: %d\n end_day: %d\n contant_langth: %d\n contant: %s\n ",data->type,data->importance,data->start_day,data->end_day,data->contant_langth,data->contant);
-  data = (char)malloc(sizeof(*data));
-  fread(data,sizeof(data),1,data_file);
+  fread(data,sizeof(file_fomat),sizeof(data->contant),data_file);
   return 0;
 }
