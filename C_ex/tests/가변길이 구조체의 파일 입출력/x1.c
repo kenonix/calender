@@ -8,7 +8,8 @@ char *pup;
 fid *fix;
 void file_w(fid *data){
   FILE * data_file;
-  data_file = fopen ("ddd.x1","wb");
+  data_file = fopen ("ddd.xi","wb");
+  if (data_file == NULL) printf("file w error");
   fwrite(data,sizeof(fid)+sizeof(data->num),1,data_file);
   fclose(data_file);
 }
@@ -20,11 +21,11 @@ void file_r(fid *data){
 
 int main (){
 
-fix = malloc(sizeof(fid)+sizeof(char)*fix->num);
-fix->num = 20;
+fix = malloc(sizeof(fid)+sizeof(char)*20);
 sprintf(fix->pup,"it's fucking work!");
-
-file_w(fix);
+fix->num = 20;
 printf("%d %s",fix->num,fix->pup);
-
+file_w(fix);
+free(fix);
+return 0;
 }
